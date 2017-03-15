@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Promise对象</title>
+	</head>
+
+	<body>
+		<p>ES6规定，Promise对象是一个构造函数，用来生成Promise实例。</p>
+		<p>一个异步编程解决方案，作为一个容器，保存着一个在未来才会结束的事件,提供两个参数resolve和reject。拥有三种状态：pending、resolve和reject</p>
+		<p>特点：状态不受外界影响，一旦改变就不会再更改，并且可以随时去监听结果。无法取消，一旦新建就会立刻执行，在pending状态下无法检测</p>
+		<p>resolve表示状态变为成功，即异步操作成功,并将结果作为参数传递出去；reject表示状态为失败，与成功类似</p>
+		<p>then可以接收promise的两个回调函数作为参数，第二个为可选，并且是在当前脚本执行完毕后执行</p>
+		<img id="imgs" />
+		<script>
+			//带有promise对象及定时的输出顺序：定时延后、promise立即执行，then在当前脚本最后执行，故2、3、5、4、1
+			setTimeout(function() {
+				console.log('one:1');
+			}, 0);
+			new Promise(function executor(resolve) {
+				console.log('one:2');
+				for(var i = 0; i < 10000; i++) {
+					i == 9999 && resolve();
+				}
+				console.log('one:3');
+			}).then(function() {
+				console.log('one:4');
+			});
+			console.log('one:5');
+			
+			//返回promise实例，定时结束promise状态变成resolve，触发then，输出value：done		
+			function timeout(ms) {
+				return new Promise(function(resolve, reject){
+					setTimeout(resolve, ms, 'done');
+					//reject('err');
+				});
+			}
+			timeout(100).then(function(value){
+				console.log('two:' + value);
+			},function(error){
+				console.log('two:' + error);
+			});
+			
+			//异步加载图片
+			loadImgAsync('../img/imgs.png');
+			function loadImgAsync(url){
+				return new Promise(function(resolve, reject) {
+					var image = new Image();
+					
+				    image.onload = function() {
+				    	resolve(image);
+				    };
+				    image.onerror = function() {
+				    	reject(new Error('Could not load image at ' + url));
+				    };
+					
+			    	image.src = url;
+			    	document.getElementById('imgs').src = image.src;
+			  	});
+			}
+			
+			window.onerror = function(errorMessage, scriptURI, lineNumber) {
+		 		reportError({
+			 		message: errorMessage,
+			 		script: scriptURI,
+			 		line: lineNumber
+			 	});
+			}
+		</script>
+	</body>
+
+</html>
