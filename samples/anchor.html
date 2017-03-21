@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>锚点动画</title>
+		<style>
+			p,a{
+				height: 110px;
+				font-size: 18px;
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<p>这是上面的填充内容</p>
+	    <p>这是上面的填充内容</p>
+	    <p>这是上面的填充内容</p>
+	    <p>这是上面的填充内容</p>
+	    <p>这是上面的填充内容</p>
+	    <a href="#theAnchor">点击我</a>
+	    <p>这是中间的填充内容</p>
+	    <p>这是中间的填充内容</p>
+	    <p>这是中间的填充内容</p>
+	    <p>这是中间的填充内容</p>
+	    <p>这是中间的填充内容</p>
+	    <p>这是中间的填充内容</p>
+	    <p>这是中间的填充内容</p>
+	    <p>这是中间的填充内容</p>
+	    <p id="theAnchor">锚点哦哦哦</p>
+	    <p>这是下面的填充内容</p>
+	    <p>这是下面的填充内容</p>
+	    <p>这是下面的填充内容</p>
+	    <p>这是下面的填充内容</p>
+	    <p>这是下面的填充内容</p>
+	    <p>这是下面的填充内容</p>
+	    <p>这是下面的填充内容</p>
+	    <p>这是下面的填充内容</p>
+	    <p>这是下面的填充内容</p>
+	    <p>这是下面的填充内容</p>
+	    <p>这是下面的填充内容</p>
+		
+		<script type="text/javascript" src="../js/jquery-1.7.2.min.js" ></script>
+		<script>
+			var anchorLink = document.querySelector('a[href="#theAnchor"]'),
+				target = document.getElementById("theAnchor");
+			
+			anchorLink.addEventListener("click", function(e) {
+	            if (window.scrollTo) {
+	                e.preventDefault();
+	                $('html, body').animate({
+	                    scrollTop: $('#theAnchor').offset().top
+	                }, 500);
+	                //e.animate(window.scrollTo(500,500),5000);
+	            }
+	        });
+		</script>
+	</body>
+</html>
