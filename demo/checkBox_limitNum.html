@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>多选框限制选择数量</title>
+		<script type="text/javascript" src="../js/jquery-1.7.2.min.js" ></script>
+	</head>
+
+	<body>
+		<input type= "checkbox" value="1" name= "sport"/>篮球<br />
+	    <input type= "checkbox" value="2" name= "sport"/>足球<br />
+	    <input type= "checkbox" value="3" name= "sport"/>排球<br />
+	    <input type= "checkbox" value="4" name= "sport"/>羽毛球<br/>
+	    <input type= "checkbox" value="5" name= "sport"/>乒乓球<br/>
+	    <p>最多选择三项</p>
+
+		<script>
+			$(function() {
+				var sportSelect = document.getElementsByName('sport'),
+					maxNums = 3;
+				for(var i in sportSelect) {
+					sportSelect[i].onclick = function() {
+						var _sportSelect = document.getElementsByName('sport'),
+							cNums = 0;
+						for(var i in _sportSelect) {
+							if(i == 'length') break;
+							if(_sportSelect[i].checked) {
+								cNums++;
+							}else{
+								
+							}
+						}
+						if(cNums == maxNums) {
+							$("input").each(function() {
+								var myInput = $(this).attr("checked");
+								if(myInput == "checked") {
+									$(this).prop("disabled", false);
+								} else {
+									$(this).prop("disabled", true);
+								}
+							})
+						}
+					}
+				}
+
+				$("input").bind("change", function() {
+					var cNums = "0";
+					$("input").each(function() {
+						var myInput = $(this).attr("checked");
+						if(myInput == "checked") {
+							cNums++;
+						} else {
+
+						}
+					})
+				})
+			})
+		</script>
+	</body>
+
+</html>
