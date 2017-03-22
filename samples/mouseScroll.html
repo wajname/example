@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>鼠标滚轮滚动</title>
+		<style>
+	        #box{
+	            width: 200px;
+	            height: 200px;
+	            background: #db7039;
+	        }
+	    </style>
+	</head>
+	<body>
+		<p>滚轮滚动，所在容器放大缩小</p>
+	    <div id="box"></div>
+	    <script>
+	        var box=document.getElementById('box');
+	        var str=window.navigator.userAgent.toLowerCase();
+	        // 需判断是否为火狐浏览器
+	        if (str.indexOf('firefox') != -1) {
+	            box.addEventListener('DOMMouseScroll',function (event){
+	            	// 阻止窗口默认的滚动事件
+	                event.preventDefault();
+	                
+	                // 前滚
+	                if (event.detail < 0) {
+	                    box.style.width=box.offsetWidth+20+'px';
+	                    box.style.height=box.offsetHeight+20+'px';
+	                };
+	                // 后滚
+	                if (event.detail > 0) {
+	                    if(box.offsetWidth > 60){
+	                        box.style.width = box.offsetWidth - 20 + 'px';
+	                        box.style.height = box.offsetHeight - 20 + 'px';
+	                    }
+	                };
+	                // 阻止默认事件
+	                return false;
+	            },false);
+	        }else{
+	            box.onmousewheel=function (ev){
+	                var e = ev || window.event;
+	                if (e.preventDefault) {
+	                    e.preventDefault();
+	                } else{
+	                    e.returnValue = false;
+	                };
+	                // 前滚
+	                if (e.wheelDelta > 0) {
+	                    box.style.width = box.offsetWidth + 20 + 'px';
+	                    box.style.height = box.offsetHeight + 20 + 'px';
+	                };
+	                // 后滚
+	                if (e.wheelDelta < 0) {
+	                    if(box.offsetWidth > 60){
+	                        box.style.width = box.offsetWidth - 20 + 'px';
+	                        box.style.height = box.offsetHeight - 20 + 'px';
+	                    }
+	                };
+	                // 阻止默认事件
+	                return false;
+	            }
+	        };
+	    </script>
+		<script type="text/javascript" src="../js/jquery-1.7.2.min.js" ></script>
+	</body>
+</html>
