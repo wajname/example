@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>alert</title>
+	</head>
+	<body>
+		<script>
+			var _alert = alert;
+			window.alert = function(s){
+				if (confirm("是否要弹框框，内容是\"" + s + "\"？")) {
+					_alert('就是不给你弹出来O(∩_∩)O~')
+				}
+			}
+//			alert(1);
+		</script>		
+	</body>
+</html>
