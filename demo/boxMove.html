@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>容器移动</title>
+		<style>
+	        .move-ul li{
+	            width: 200px;
+	            height: 100px;
+	            background: #FF4747;
+	            list-style: none;
+	            margin-top: 20px;
+	        }
+	        .page-ul li{
+	            width: 300px;
+	            height: 300px;
+	            background: #FFD1B3;
+	            list-style: none;
+	            float: left;
+	            margin-left: 20px;
+	            opacity: 0.3;
+	        }
+	    </style>
+	</head>
+	<body>
+		<ul class="move-ul">
+	        <li></li>
+	        <li></li>
+	        <li></li>
+	    </ul>
+	
+	    <ul class="page-ul">
+	        <li class="page"></li>
+	        <li class="page"></li>
+	        <li class="page"></li>
+	    </ul>
+	    
+	    <script>
+	        window.onload = function(){
+	            var ind = document.getElementsByTagName("li");
+	            for(var i=0;i<ind.length;i++){
+	                ind[i].timer=null;/*当遇到多个对象时，最好不用全局变量，可能会发生争夺现象*/
+	                ind[i].onmouseover = function(){
+	                    onMove(this,400,10); /*这里控制，对象，目标值，速度*/
+	                }
+	                ind[i].onmouseout = function(){
+	                    onMove(this,200,-10);
+	                }
+	            }
+	
+	            var opp = document.getElementsByClassName("page");
+	            for(var i=0;i<opp.length;i++){
+	                opp[i].timer=null;
+	                opp[i].a=30; /*透明度，没有直接获取当前透明度的方法，所以自生成*/
+	
+	                opp[i].onmouseover = function(){
+	                    onStart(this,100,5);/*这里控制对象，目标值，速度*/
+	                }
+	                opp[i].onmouseout = function(){
+	                    onStart(this,30,-5);
+	                }
+	            }
+	        }
+	
+	        function onMove(obj,mu,speed){
+	            clearInterval(obj.timer);
+	
+	            obj.timer=setInterval(function(){
+	                speed=(mu-obj.offsetWidth)/8;
+	                speed=speed>0?Math.ceil(speed):Math.floor(speed);
+	                /*变速在这里，两行，删除直接是 匀速*/
+	                if(obj.offsetWidth == mu){
+	                    clearInterval(obj.timer);
+	                }
+	                else{
+	                    obj.style.width=obj.offsetWidth+speed+"px";
+	                }
+	            },30)
+	        }
+	        function onStart(obj,mu,speed) {
+	            clearInterval(obj.timer);
+	            obj.timer = setInterval(function () {
+	                if (obj.a == mu) {
+	                    clearInterval(obj.timer);
+	                }
+	                else {
+	                    obj.a += speed;
+	                    obj.style.opacity = (obj.a) / 100;
+	                }
+	            }, 10)
+	        }
+	    </script>
+	</body>
+</html>
