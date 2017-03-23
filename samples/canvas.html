@@ -391,7 +391,7 @@
 	
 	            var image = new Image();
 	
-	            image.src = "style/images/maliao.jpg";
+	            image.src = "../img/maliao.jpg";
 	            var canvas = document.getElementById(id);
 	
 	            if (canvas == null)
@@ -409,7 +409,7 @@
 	
 	            var image = new Image();
 	
-	            image.src = "style/images/maliao.jpg";
+	            image.src = "../img/maliao.jpg";
 	            var canvas = document.getElementById(id);
 	
 	            if (canvas == null)
@@ -425,7 +425,7 @@
 	        //drawImage(image,sx,sy,sw,sh,dx,dy,dw,dh)
 	        function draw13(id){
 	            var image = new Image();
-	            image.src = "style/images/maliao.jpg";
+	            image.src = "../img/maliao.jpg";
 	            var canvas = document.getElementById(id);
 	
 	            if (canvas == null)
@@ -448,7 +448,7 @@
 	            var context = canvas.getContext("2d");
 	            var type = ["no-repeat", "repeat-x", "repeat-y", "repeat"];
 	            var i = 0;
-	            image.src = "style/images/true.png";
+	            image.src = "../img/true.png";
 	            image.onload = function () {
 	                var interval = setInterval(function () {
 	                    //每次转换平铺类型清空
@@ -475,7 +475,7 @@
 	            image.onload = function () {
 	                drawImg(context,image);
 	            }
-	            image.src = "style/images/maliao.jpg"
+	            image.src = "../img/maliao.jpg"
 	        }
 	        function drawImg(context, image) {
 	            //圆形裁剪区
@@ -519,7 +519,7 @@
 	            //在右下角画一个正方形
 	            context.fillRect(250,250,150,50);
 	            var image = new Image();
-	            image.src = "style/images/h5.png";
+	            image.src = "../img/h5.png";
 	
 	            image.onload = function () {
 	                //在左上角画一幅图片)
