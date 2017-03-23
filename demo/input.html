@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>input输入框</title>
+		<script type="text/javascript" src="../js/jquery-1.7.2.min.js" ></script>
+		<style>
+			.noPermitInput{
+				width: 300px;
+				line-height: 25px;
+				display: block;
+				margin: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<p>输入框限制:</p>
+		<input type="text" class="noPermitInput" placeholder="仅允许数字输入,中文输入法输入后会清除" onKeyPress="if(event.keyCode < 48 || event.keyCode > 57 || event.keyCode == 8) event.returnValue = false;" onKeyUp="this.value=this.value.replace(/\D/g,'')" />
+		<input type="text" class="noPermitInput" placeholder="仅允许数字输入,中文输入法可输入" onKeyPress="if(event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" />
+		<input type="text" class="noPermitInput" placeholder="不允许输入,中文输入法可输入" onkeypress="noPermitInput(event)" >
+		<input type="text" class="noPermitInput" placeholder="仅允许数字输入" id="noPermitInput" />
+		
+		<script type="text/javascript" src="../js/noPermitInput.js" ></script>
+		<script>
+			function noPermitInput(e){
+				var evt = window.event || e ;
+	            if(isIE()){
+	                evt.returnValue=false; //ie 禁止键盘输入
+	            }else{
+	                evt.preventDefault(); //fire fox 禁止键盘输入
+	            }
+			}
+			
+			function isIE(){
+				if (window.navigator.userAgent.toLowerCase().indexOf("msie") >= 1){
+					return true;
+				}else{
+					return false;
+				}
+			}
+			
+			// noPermitInput.js调用
+	        $("#noPermitInput").numbox({
+	            width: 300,
+	            height: 25
+	        });
+		</script>
+	</body>
+</html>
