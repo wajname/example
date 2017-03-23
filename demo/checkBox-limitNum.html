@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title>多选框限制选择数量</title>
+		<title>多选框限制选择数量(3)</title>
 		<script type="text/javascript" src="../js/jquery-1.7.2.min.js" ></script>
 	</head>
 
@@ -13,7 +13,6 @@
 	    <input type= "checkbox" value="3" name= "sport"/>排球<br />
 	    <input type= "checkbox" value="4" name= "sport"/>羽毛球<br/>
 	    <input type= "checkbox" value="5" name= "sport"/>乒乓球<br/>
-	    <p>最多选择三项</p>
 
 		<script>
 			$(function() {
@@ -27,8 +26,6 @@
 							if(i == 'length') break;
 							if(_sportSelect[i].checked) {
 								cNums++;
-							}else{
-								
 							}
 						}
 						if(cNums == maxNums) {
@@ -40,21 +37,13 @@
 									$(this).prop("disabled", true);
 								}
 							})
+						}else{
+							$("input").each(function() {
+								$(this).prop("disabled", false);
+							})
 						}
 					}
 				}
-
-				$("input").bind("change", function() {
-					var cNums = "0";
-					$("input").each(function() {
-						var myInput = $(this).attr("checked");
-						if(myInput == "checked") {
-							cNums++;
-						} else {
-
-						}
-					})
-				})
 			})
 		</script>
 	</body>
