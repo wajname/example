@@ -1,0 +1,122 @@
+// 定义一个变量
+@baseFontSize: 75;
+@bgColorType: #2EB1E8;
+@nice-blue: #5B83AD;
+@fnord: "I am fnord";
+@var: 'fnord';
+@base-url: "../img/";
+@jsVar: `"hello".toUpperCase() + '!'`;
+.px1rem(@name, @px){
+    @{name}: @px / @baseFontSize * 1rem;
+}
+.bgcolor(){
+    background-color: @bgColorType;
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black;
+}
+.border-radius (@radius:5px) {
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+.wrap () {
+  text-wrap: wrap;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  word-wrap: break-word;
+}
+.box-shadow (@x: 0, @y: 0, @blur: 1px, @color: #000) {
+  box-shadow: @arguments;
+  -moz-box-shadow: @arguments;
+  -webkit-box-shadow: @arguments;
+}
+.math(){
+    height: round(1.67) * 1rem;             // returns `2`
+    margin-left: ceil(2.4) * 1rem;          // returns `3`
+    line-height: floor(2.6) * 1rem;         // returns `2`
+    width: percentage(0.5) * 1rem;          // returns `50%`
+}
+#bundle {
+  .button () {
+    border: 1px solid black;
+    background-color: grey;
+    &:hover { background-color: white }
+  }
+  .tab () {
+    color: #f00;
+  }
+}
+
+
+
+html{
+    font-size: 20px;
+}
+.header {
+    color: @nice-blue;
+    .box-shadow(2px, 5px);
+    .navigation {
+        font-size: 12px;
+        #bundle > .tab;
+    }
+    .logo {
+        width: 300px;
+        &:hover { text-decoration: none }
+    }
+}
+.header:after{
+    content: @@var;
+}
+.container1 {
+    .px1rem(height, 240);
+    .px1rem(width, 240);
+    .bgcolor;
+    .border-radius(6px);
+}
+.container1:after{
+    content: @jsVar;
+}
+.container2 {
+    .px1rem(height, 200);
+    .px1rem(width, 230);
+    .bgcolor;
+    .border-radius(7px);
+}
+.container3 {
+    .px1rem(height, 210);
+    .px1rem(width, 300);
+    .bgcolor;
+    .border-radius;
+}
+.container4 {
+    .px1rem(height, 250);
+    .px1rem(width, 200);
+    .bgcolor;
+    .wrap;
+}
+.container5{
+    .bgcolor;
+    .math;
+    .border-radius(20px);
+}
+.container6{
+    .px1rem(height, 200);
+    .px1rem(width, 350);
+    #bundle > .button;
+}
+#page {
+    @var: 'No';
+    #top:after {
+        content: @var;  // No
+    }
+}
+#bottom{
+    .px1rem(width, 500);
+    background-image: url("@{base-url}true.png");
+}
+#bottom:after {
+    content: @var;    // fnord
+}
+.noneClass {
+  filter: ~"ms:alwaysHasItsOwnSyntax.For.Stuff()";
+}
