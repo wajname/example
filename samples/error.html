@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>错误处理与调试</title>
+		<script type="text/javascript" src="../js/jquery-1.7.2.min.js" ></script>
+	</head>
+	<body>
+		<script>
+			$(function(){
+				var processArray=[100,200,400,12,30,156,121,98,99,100];
+	            process(processArray);
+	            getQueryString("th?123");
+	        })
+	        // finally子句一经使用，其代码无论如何都会执行
+	        try{
+	            //someFunction();
+	        }catch (error){
+	            if(error instanceof TypeError){
+	                throw new Error("类型错误");
+	            }else if(error instanceof ReferenceError){
+	                throw new Error("未发现引用");
+	            }else{
+	                throw new Error("other eerror");
+	            }
+	        }
+	
+	        function process (value){
+	            if(!(value instanceof Array)){
+	                throw new Error("something bad happened");
+	            }
+	            value.sort();
+	
+	            for(var i = 0, len = value.length; i < len; i++){
+	                if(value[i] > 100){
+	                    return value[i];
+	                }
+	            }
+	
+	            return -1;
+	        }
+	        // url若不是字符串，就会导致报错;加入类型判断
+	        function getQueryString(url){
+	            if(typeof url == "string"){
+	                var pos = url.indexOf("?");
+	                if(pos > -1){
+	                    return url.substring(pos + 1);
+	                }
+	            }
+	            return true;
+	        }
+	
+	        function addQueryString(url,name,value){
+	            if(url.indexOf("?") == -1){
+	                url += "?";
+	            }else{
+	                url += "&";
+	            }
+	
+	            url += encodeURIComponent(name) + "=" + encodeURIComponent(value);
+	            return url;
+	        }
+	        var url = "http://www.w3school.com.cn?type=1";
+	        var newUrl =  addQueryString(url,"redir","2");
+		</script>
+	</body>
+</html>
