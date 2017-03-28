@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>滚动的标题</title>
+	</head>
+	<body>
+		<script>
+			function scroll() {
+	            var titleInfo = document.title;
+	            /*
+	             * 获取title第一个字符（数字、字母）
+	             * 获取第二位到最后的信息
+	             */
+	            var firstInfo = titleInfo.charAt(0);
+	            var lastInfo = titleInfo.substring(1, titleInfo.length);
+	            
+	            document.title = lastInfo + firstInfo;
+	        }
+	        // 每隔0.5s执行
+	        setInterval("scroll()", 100);
+	
+	        // 屏蔽鼠标右键
+	        document.oncontextmenu = function(){
+	            event.returnValue = false;
+	        }
+		</script>
+	</body>
+</html>
