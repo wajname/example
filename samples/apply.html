@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>apply</title>
+	</head>
+	<body>
+		<script>
+			function person(name,age){
+				this.name = name;
+				this.age = age;
+				this.sayHello = function(){
+					console.log('hello!');
+				}
+			}
+			function print(){
+				this.funName = 'print';
+				this.show = function(){
+					var msg=[];
+	                for(var key in this){
+	                    if(typeof(this[key])!="function"){
+	                        msg.push([key,":",this[key]].join(""));
+	                    }
+	                }
+	                console.log(msg.join(" "));
+				}
+			}
+			function student(name,age,grade,school){
+	            person.apply(this,arguments);
+	            print.apply(this,arguments);
+	            this.grade=grade;
+	            this.school=school;
+	        }
+			var p1=new person("jake",10);
+	        p1.sayHello();
+	        var s1=new student("Tom",18,6,"清华大学");
+	        s1.show();
+	        s1.sayHello();
+	        console.log(s1.funName);
+	
+	        var num1 = -64;
+	        var num2 = num1 << 5;
+	        console.log('通过<<之后，num1：-64变为num2：' + num2);
+	
+	        // 遍历window的属性和方法
+	        var prop = "";
+	        for(var propName in window){
+	            prop +=  propName + ",";
+	        }
+	        console.log(prop);
+	
+	        var count = 5;
+	        start: for (var i = 0; i < count;i++){
+	            console.log(i);
+	        }
+	
+	        var num = 0;
+	        outer:for(var i = 0; i < 10; i++){
+	            for(var j =0; j<10;j++){
+	                if(i == 2 && j==2){
+	                    continue outer;
+	                }
+	                num++;
+	                console.log("num="+num)
+	            }
+	        }
+	        console.log(num);
+	
+	        var color = "blue";
+	        function changeColor(){
+	            if(color === "blue"){
+	                color = "red"
+	            } else{
+	                color = "blue"
+	            }
+	        }
+	        changeColor();
+	        console.log("Color is now " + color);
+	
+	
+	        function build(){
+	            var qs = "?debug=true";
+	
+	            with(location){
+	                var url = href + qs;
+	            }
+	            return url;
+	        }
+	        console.log(build())
+	
+	        var objectDemo = {};
+	        // writable 设置为false，将值设置为只读，尝试赋值，在严格模式下，将会抛出错误
+	        // configurable 为false，属性被设定为不可配置，只有在修改writable时不会抛出错误
+	        Object.defineProperty(objectDemo,"name",{
+	            writable: false,
+	            configurable:false,
+	            value: "Nico"
+	        });
+	        console.log(objectDemo.name);
+	        objectDemo.name = "Greg";
+	        console.log(objectDemo.name);
+	
+	        var book = {
+	            _year: 2004,
+	            edition: 1
+	        };
+	        Object.defineProperty(book,"year",{
+	            get: function(){
+	                return this._year;
+	            },
+	            set:function(newValue){
+	                if(newValue > 2004){
+	                    this._year = newValue;
+	                    this.edition += newValue - 2004;
+	                }
+	            }
+	        });
+	        book.year = 2008;
+	        //alert(book.edition);
+	        var descriptor = Object.getOwnPropertyDescriptor(book,"edition");
+	        //alert(descriptor.value);
+	
+	        // 创建对象-工厂模式
+	        function createPerson(name,age,job){
+	            var o = new Object();
+	            o.name = name;
+	            o.age = age;
+	            o.job = job;
+	            o.sayName = function(){
+	                alert(this.name);
+	            };
+	            return o;
+	        }
+	        var person1 = createPerson("Nico","18","PHP");
+	        //person1.sayName()
+	
+	        // 创建对象-构造函数模式
+	        function Person(name,age,job){
+	            this.name = name;
+	            this.age = age;
+	            this.job = job;
+	            this.sayAge = function(){
+	                alert(this.name);
+	                alert(this.age);
+	                alert(this.job);
+	            };
+	        }
+	        var person2 = new Person("Nico","18","PHP");
+	        //person2.sayAge();
+	        //alert(person2.constructor == Person);
+	
+	        //使用call()、apply()实现继承
+	        function Animal1(){
+	            this.name = "Animal";
+	            this.showName = function(){
+	                alert(this.name);
+	            }
+	        }
+	        function Cat1(){
+	            this.name = "Cat";
+	        }
+	        var animal1 = new Animal1();
+	        var cat1 = new Cat1();
+	        // 通过call或apply方法，将原本属于Animal对象的showName()方法交给对象cat来使用了。
+	        // 输入结果为"Cat"
+	        // animal1.showName.call(cat1,",");
+	        // animal1.showName.apply(cat1,[]);
+	
+	        //使用call()方法实现继承
+	        function Animal(name){
+	            this.name = name;
+	            this.showName = function(){
+	                alert(this.name);
+	            }
+	        }
+	        function Cat(name){
+	            Animal.call(this, name);
+	        }
+	        var cat = new Cat("Black Cat");
+	        //cat.showName();
+		</script>
+	</body>
+</html>
