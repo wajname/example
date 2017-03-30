@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>navigator</title>
+	</head>
+	<body>
+		<div id="show"></div>
+		<script>
+			run();
+			function run() {
+	            var _showBox = document.getElementById("show");
+	            var end = window.navigator.mimeTypes.length;
+	            for (var i = 0; i < end; i++) {
+	                _showBox.innerHTML += window.navigator.mimeTypes.item(i).description + "<br / >";
+	            }
+	        }
+		</script>
+	</body>
+</html>
