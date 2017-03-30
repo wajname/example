@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>htmlSemantics的子页面</title>
+		<script>
+	        function trans(tag){
+	            if (tag==0){
+	                window.returnValue=false;
+	            } else{
+	                window.returnValue =true;
+	            }
+	            window.close();
+	        }
+	    </script>
+	</head>
+	<body>
+		<input id="button1" type="button" value="返回真" name="button1" onclick="trans(1)">
+		<input id="button2" type="button" value="返回假" name="button2" onclick="trans(0)">
+	</body>
+</html>

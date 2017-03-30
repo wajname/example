@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>html语义化</title>
+	</head>
+	<body>
+		<div id="dataTree">
+			<h2>
+				数据1
+			    <small>
+		        	<i class="ace-icon fa fa-angle-double-right">
+		         		副标题1
+			        </i>
+			    </small>
+			</h2>
+			<h2>
+			    数据2
+			    <small>
+			        <i class="ace-icon fa fa-angle-double-right">
+		            	副标题2
+			        </i>
+			    </small>
+			</h2>
+			<h2>
+			    数据3
+			</h2>
+		</div>
+		<!--有关H5的占位符，以及占位符样式处理（见本页）  PS：IE10+支持-->
+		<input id="field1" type="text" name="user_search" placeholder="Search W3School" />
+		<div>
+		    <ul id="ulBox"></ul>
+		</div>
+		<textarea id="txt1">点击按钮选中当前文字</textarea>
+		<input type="button" value="Select text" onclick="selText()">
+		<br />
+		<input id="button1" type="button" value="事件返回值" name="button1" onclick="showModal();" />
+		<div id="div_001">
+		    <form id="form_001">
+		        <input type="button" id="button_001_id" name="button_001_Name" value="单击查看" class="button_001_Class" onclick="Get_srcElement(this)">
+		    </form>
+		</div>
+		body内默认字体样式测试：字号，字体，颜色，行高。body内默认字体样式测试：字号，字体，颜色，行高。body内默认字体样式测试：字号，字体，颜色，行高。
+		body内默认字体样式测试：字号，字体，颜色，行高。body内默认字体样式测试：字号，字体，颜色，行高。body内默认字体样式测试：字号，字体，颜色，行高。
+		<h1>h1默认字体样式测试</h1>
+		<h2>h2默认字体样式测试</h2>
+		<h3>h3默认字体样式测试</h3>
+		<h4>h4默认字体样式测试</h4>
+		<h5>h5默认字体样式测试</h5>
+		<h6>h6默认字体样式测试</h6>
+		<span>&#8217;;span标签</span><sub>下标</sub>
+		<span>span标签</span><sup>上标</sup>
+		<hr />
+		<span>简称或缩写（IE6不支持）：</span><abbr title="People's Republic of China">PRC</abbr>
+		<br />
+		<q>标记短的引用（Reset将默认引号去除）</q>
+		<p><del>被删除的文字</del><ins>替换被删除的文字</ins>,哇哈哈！</p>
+		<p><time pubdate datetime="2012-10-03">2012/10/03</time></p>
+		<p><time pubdate datetime="2012-10-03T19:10-08:00">~1 hour ago</time></p>
+		<strong>强调(默认加粗)</strong>
+		<em>强调(默认斜体)</em>
+		<hr />
+		<div>
+		    <hgroup>
+		        <h1>关于hgroup：用于对网页或区段（section）的标题进行组合</h1>
+		        <h1>标题：HTML语义化</h1>
+		    </hgroup>
+		    <hr />
+		    <section>
+		        <h1>关于section：定义文档中的节（section、区段）。比如章节、页眉、页脚或文档中的其他部分</h1>
+		        <hr/>
+		        <article>
+		            <header>
+		                <h1>关于header：定义文档的页眉（介绍信息）</h1>
+		            </header>
+		            <footer>
+		                <h1>关于footer：定义文档或节的页脚</h1>
+		                <p>页脚通常包含文档的作者、版权信息、使用条款链接、联系信息等等....</p>
+		            </footer>
+		
+		        </article>
+		    </section>
+		    <hr />
+		    <article>
+		        <h1>关于article：定义外部的内容</h1>
+		        <p>外部内容可以是来自一个外部的新闻提供者的一篇新的文章，或者来自 blog 的文本，或者是来自论坛的文本。亦或是来自其他外部源内容</p>
+		        <p>PS:article标签的内容独立于文档的其余部分</p>
+		    </article>
+		    <hr />
+		    <aside>
+		        <h1>关于aside：定义 article 以外的内容。aside 的内容应该与 article 的内容相关。</h1>
+		        <p>PS：可用于文章侧边栏</p>
+		    </aside>
+		    <hr />
+		    <table>
+		        <caption>表格(table)标题</caption>
+		        <tr>
+		            <td>表格内容</td>
+		            <td>表格内容</td>
+		            <td>表格内容</td>
+		        </tr>
+		        <tr>
+		            <td>表格内容</td>
+		            <td>表格内容</td>
+		            <td>表格内容</td>
+		        </tr>
+		        <tr>
+		            <td>表格内容</td>
+		            <td>表格内容</td>
+		            <td>表格内容</td>
+		        </tr>
+		        <tr>
+		            <td>表格内容</td>
+		            <td>表格内容</td>
+		            <td>表格内容</td>
+		        </tr>
+		    </table>
+		</div>
+		<div onclick="a()">
+		    <input value='点一下试试。。。。'/><br />
+		    <a>点击测试：这是A标签</a>
+		    <p>点击测试：p</p>
+		    <span>点击测试：span</span>
+		    <div>
+		        <a onmouseover="alert(event.srcElement.parentElement.tagName);">放在我上面,获得父级节点名称</a>
+		    </div>
+		</div>
+		
+		<!--有关图片以及图片注释的语义化标签-->
+		<figure>
+		    <img src="../img/h5.png" alt="about img">
+		</figure>
+		<figcaption>
+		    <p id="foot">this is image of something interesting</p>
+		</figcaption>
+		
+		<script>
+			//获取点击事件节点名称
+	        function a(){
+	            alert("您点击的标记是：" + event.srcElement.tagName);
+	        }
+	
+	        //获取节点对象
+	        function Get_srcElement(){
+	            var srcElement=""
+	            srcElement += "\n" + "event.srcElement.id : " + event.srcElement.id;
+	            srcElement += "\n" + "event.srcElement.tagName : " + event.srcElement.tagName;
+	            srcElement += "\n" + "event.srcElement.type : " + event.srcElement.type;
+	            srcElement += "\n" + "event.srcElement.value : " + event.srcElement.value;
+	            srcElement += "\n" + "event.srcElement.name : " + event.srcElement.name;
+	            srcElement += "\n" + "event.srcElement.className : " + event.srcElement.className;
+	            srcElement += "\n" + "event.srcElement.parentElement.id : " + event.srcElement.parentElement.id;
+	            srcElement += "\n" + "event.srcElement.parentNode.id : " + event.srcElement.parentNode.id;
+	            srcElement += "\n" + "event.srcElement.getattribute : " + event.srcElement.getAttribute;
+	            alert(srcElement);
+	        }
+	
+	        // 窗口事件返回值（此实例方法仅IE有效）
+	        function showModal(){
+	            var ret = window.showModalDialog("htmlSemantics-child.html",null,"dialogWidth:350px;dialogHeight:350px;help:no;status:no");
+	            if (ret){
+	            	alert('子窗口返回真!');
+	            }else{
+	                alert('子窗口返回假!');
+	            }
+	        }
+	
+	
+	
+	        //访问当前窗口元素
+	        function selText(){
+	            document.getElementById("txt1").select();
+	        }
+	        
+	        zzbds();
+	        function zzbds(){
+	            var n1 = 0;
+	            var cateList = document.getElementById('dataTree').innerHTML.match(/(<h[2-3][^>]*>[\s\S]*?)<*>/ig);
+	            for(var i = 0;i < cateList.length;i++){
+	                if(/(<h2[^>]*>)/ig.test(cateList[i])){
+	                    n1++;
+	                    var n2 = 0;
+	                    var fClass ="yi-list" + n1;
+	                    var thisHtml = cateList[i].replace(/[\s\S]*?/g,"");
+	                    thisHtml = thisHtml.replace(/\n/g, "");
+	                    thisHtml = thisHtml.replace(/\s+/g, "");
+	                    thisHtml = thisHtml.replace(/<h2>/g, "");
+	                    thisHtml = thisHtml.replace(/<small>/g, "");
+	                    var temp ='<li class='+fClass+'><span class="cat_title"><span class="cat_num">'+n1+'.</span><a href="#'+n1+'">'+ cateList[i].replace(/<[^>].*?>/g,"") +'</a></span></li>';
+	                    document.getElementById('ulBox').innerHTML += temp;
+	                }
+	            }
+	        }
+		</script>
+	</body>
+</html>
