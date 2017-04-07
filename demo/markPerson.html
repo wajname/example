@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>考评时添加人员</title>
+		<link rel="stylesheet" href="../js/layer/skin/layer.css" />
+	</head>
+	<body>
+		<h1>点击添加按钮，弹出选人窗口;左侧单位树，右侧人员;需全选</h1>
+		<div>
+			<span style="padding: 5px 8px;background: #5B83AD;color: #fff;cursor: pointer;" onclick="addPerson()">添加人员</span>
+		</div>
+		
+		<script type="text/javascript" src="../js/jquery-1.7.2.min.js" ></script>
+		<script type="text/javascript" src="../js/layer/layer.js" ></script>
+		<script>
+			function addPerson(){
+				layer.open({
+					type: 1,
+					title: ['请选择审批人','font-size: 16px;font-weight: bold;padding-left: 10px;'],
+					closeBtn: 0, //不显示关闭按钮
+					shadeClose: true,
+					area: ['740px', '580px'],
+					time: false,
+					shift: 2,
+					btn: ['确定','全选','取消'],
+					yes: function(index, layero){
+			    		
+			  		},
+					skin: 'layerRadius',
+					content: '123' //iframe的url，no代表不显示滚动条
+				});
+			}
+		</script>
+	</body>
+</html>
