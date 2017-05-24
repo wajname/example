@@ -4,11 +4,29 @@
 		<meta charset="UTF-8">
 		<title>考评时添加人员</title>
 		<link rel="stylesheet" href="../js/layer/skin/layer.css" />
+		<link rel="stylesheet" href="../css/markPerson.css" />
+		<style>
+			.layui-layer-btn .layui-layer-btn1{
+				border-color: #33527f;
+				background-color: #3c6194;
+				color: #fff;
+			}
+		</style>
 	</head>
 	<body>
 		<h1>点击添加按钮，弹出选人窗口;左侧单位树，右侧人员;需全选</h1>
 		<div>
 			<span style="padding: 5px 8px;background: #5B83AD;color: #fff;cursor: pointer;" onclick="addPerson()">添加人员</span>
+		</div>
+		
+		<div id="layerPerson" style="display: none;">
+			<div class="left-layerOpen">
+				
+			</div>
+			<div class="right-layerOpen">
+				
+			</div>
+			<div style="clear: both;"></div>
 		</div>
 		
 		<script type="text/javascript" src="../js/jquery-1.7.2.min.js" ></script>
@@ -23,12 +41,16 @@
 					area: ['740px', '580px'],
 					time: false,
 					shift: 2,
-					btn: ['确定','全选','取消'],
+					btn: ['全选','确定','取消'],
 					yes: function(index, layero){
 			    		
-			  		},
+			  		},btn2: function(index, layero){
+					    
+					},btn3: function(index, layero){
+						
+					},
 					skin: 'layerRadius',
-					content: '123' //iframe的url，no代表不显示滚动条
+					content: $('#layerPerson')
 				});
 			}
 		</script>
