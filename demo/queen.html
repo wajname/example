@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>queen</title>
+		<style>
+			table{
+				border-left: 1px #000 solid;
+				border-bottom: 1px #000 solid;
+			}
+			table tr td{
+				width: 20px;
+				height: 20px;
+				border-right: 1px #000 solid;
+				border-top: 1px #000 solid;
+			}
+		</style>
+	</head>
+
+	<body>
+		<table>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+		
+		<script>
+			function queen(a, cur) {
+				if(cur == a.length) {
+//					console.log(a);
+					document.write(a + '</br>');
+					return
+				};
+				for(var i = 0; i < a.length; i++) {
+					a[cur] = i;
+					flag = true;
+					for(var j = 0; j < cur; j++) {
+						var ab = i - a[j];
+						if(a[j] == i || (ab > 0 ? ab : -ab) == cur - j) {
+							flag = false;
+							break
+						};
+					};
+					if(flag) {
+						queen(a, cur + 1)
+					};
+				};
+			};
+			queen([1, 1, 1, 1, 1, 1, 1, 1], 0)
+		</script>
+	</body>
+
+</html>

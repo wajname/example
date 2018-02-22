@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="renderer" content="ie-comp"> 
+		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+	    <title>服务器及虚拟服务器巡检模板</title>
+		<META name="Keywords" content="" />
+		<meta name="description" content="">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/table.css" />
+	</head>
+	<body>
+		<!--begin--> 
+		<div class="ta_div">
+			<p class="font_b2">1.资产基本信息</p>
+		    <table cellspacing="0" cellpadding="0">
+		    	<tr class="ta_tr1" style="visibility: hidden;height: 0;">
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		        </tr>
+	    		<tr class="ta_tr1">
+		            <td>设备编号</td>
+		            <td colspan="5"></td>
+		        </tr>
+		        <tr class="ta_tr1">
+		            <td>品牌型号</td>
+		            <td colspan="2"></td>
+		            <td>序列号</td>
+		            <td colspan="2"></td>
+		        </tr>
+		        <tr class="ta_tr1">
+		            <td>配置描述</td>
+		            <td colspan="5"></td>
+		        </tr>
+		        <tr class="ta_tr1">
+		            <td>保内保外</td>
+		            <td colspan="2"></td>
+		            <td>物理位置</td>
+		            <td colspan="2"></td>
+		        </tr>
+		        <tr class="ta_tr1">
+		            <td>用途</td>
+		            <td colspan="5"></td>
+		        </tr>
+		        <tr class="ta_tr1">
+		            <td>阵列配置</td>
+		            <td colspan="2"></td>
+		            <td>主机名</td>
+		            <td colspan="2"></td>
+		        </tr>
+		        <tr class="ta_tr1">
+		            <td>操作系统</td>
+		            <td colspan="5"></td>
+		        </tr>
+		        <tr class="ta_tr1">
+		            <td>账户</td>
+		            <td colspan="2"></td>
+		            <td>密码</td>
+		            <td colspan="2"></td>
+		        </tr>
+		        <tr class="ta_tr1">
+		            <td>MAC地址</td>
+		            <td colspan="2"></td>
+		            <td>IP地址</td>
+		            <td colspan="2"></td>
+		        </tr>
+		        <tr class="ta_tr2">
+		            <td colspan="6">以上信息如有变化，请在此做变更说明</td>
+		        </tr>
+		    </table>
+		    
+		    <p class="font_b2">2.功能检查</p>
+		    <table cellspacing="0" cellpadding="0">
+		    	<tr class="ta_tr1" style="visibility: hidden;height: 0;">
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		        </tr>
+		        <tr class="ta_tr1">
+		            <td>序号</td>
+		            <td colspan="2">检查项目</td>
+		            <td colspan="4">检查内容</td>
+		            <td colspan="2">检查结论</td>
+		            <td colspan="3">情况摘要</td>
+		        </tr>
+		        <tr class="ta_tr1">
+		            <td>1</td>
+		            <td colspan="2">硬件告警</td>
+		            <td colspan="4">检查服务器前面板指示灯、硬盘指示灯和电源指示灯是否正常，一般绿色为正常。</td>
+		            <td colspan="2"></td>
+		            <td colspan="3"></td>
+		        </tr>
+		        <tr class="ta_tr1">
+		            <td>2</td>
+		            <td colspan="2">两扇运转</td>
+		            <td colspan="4">观察并用手感觉进风和出风是否正常。</td>
+		            <td colspan="2"></td>
+		            <td colspan="3"></td>
+		        </tr>
+		        <tr class="ta_tr1">
+		            <td>3</td>
+		            <td colspan="2">网卡工作状态</td>
+		            <td colspan="4">连接数据线后，工作指示灯亮起，一般为绿色。若有数据传输，则网卡指示灯 会呈现规律性闪烁；若闪烁不正常或指 示灯颜色不正常，则说明系统数据传输 不正常。（注意有些网卡工作指示灯颜色为琥珀色，和故障时指示灯颜色相同，要注意区分。</td>
+		            <td colspan="2"></td>
+		            <td colspan="3"></td>
+		        </tr>
+		        <tr class="ta_tr1">
+		            <td>4</td>
+		            <td colspan="2">线缆连接</td>
+		            <td colspan="4">检查服务器电源线、网线、光纤跳线、KVM连接线缆是否有松动、接触不良等。</td>
+		            <td colspan="2"></td>
+		            <td colspan="3"></td>
+		        </tr>
+		        <tr class="ta_tr1">
+		            <td>5</td>
+		            <td colspan="2">异响</td>
+		            <td colspan="4">聆听服务器运转声音，是否有异常响声， 如硬盘、风扇异常响声、机器告警声等。</td>
+		            <td colspan="2"></td>
+		            <td colspan="3"></td>
+		        </tr>
+		        <tr class="ta_tr1">
+		            <td>6</td>
+		            <td colspan="2">异味</td>
+		            <td colspan="4">嗅探是否有烧焦味、霉味、腐蚀味等。</td>
+		            <td colspan="2"></td>
+		            <td colspan="3"></td>
+		        </tr>
+		        <tr class="ta_tr1">
+		            <td>7</td>
+		            <td colspan="2">账户和密码</td>
+		            <td colspan="4">使用账户和密码登陆，检查是否能够正常登陆到系统，且查看是否有其它异常账户同时登陆到系统。</td>
+		            <td colspan="2"></td>
+		            <td colspan="3"></td>
+		        </tr>
+		        <tr class="ta_tr1">
+		            <td>8</td>
+		            <td colspan="2">操作系统时区时间</td>
+		            <td colspan="4">检查操作系统时区吋间设置是否正确。</td>
+		            <td colspan="2"></td>
+		            <td colspan="3"></td>
+		        </tr>
+		        <tr class="ta_tr1">
+		            <td>9</td>
+		            <td colspan="2">网络通信</td>
+		            <td colspan="4">执行ping命令,ping网关或其它机器，观察5分钟看是否有丢包现象。</td>
+		            <td colspan="2"></td>
+		            <td colspan="3"></td>
+		        </tr>
+		        <tr class="ta_tr1">
+		            <td>10</td>
+		            <td colspan="2">性能检查</td>
+		            <td colspan="4">观察CPU和内存使用情况。</td>
+		            <td colspan="2"></td>
+		            <td colspan="3"></td>
+		        </tr>
+		        <tr class="ta_tr1">
+		            <td>11</td>
+		            <td colspan="2">磁盘使用</td>
+		            <td colspan="4">检查磁盘可用空间情况。</td>
+		            <td colspan="2"></td>
+		            <td colspan="3"></td>
+		        </tr>
+		        <tr class="ta_tr1">
+		            <td>12</td>
+		            <td colspan="2">日志检查</td>
+		            <td colspan="4">检查系统日志、安全日志、应用日志。</td>
+		            <td colspan="2"></td>
+		            <td colspan="3"></td>
+		        </tr>
+	    	</table>
+	    	
+	    	<p class="font_b2">3.关联虚拟服务器</p>
+		    <table cellspacing="0" cellpadding="0">
+		    	<tr class="ta_tr1" style="visibility: hidden;height: 0;">
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		        </tr>
+		        <tr class="ta_tr1">
+		            <td>序号</td>
+		            <td>虚拟机</td>
+		            <td colspan="2">检查项目</td>
+		            <td colspan="3">检查内容</td>
+		            <td colspan="2">检查结论</td>
+		            <td colspan="3">情况摘要</td>
+		        </tr>
+		        <tr class="ta_tr1">
+		            <td rowspan="5">1</td>
+		            <td rowspan="5">DNS</td>
+		            <td colspan="2">性能检查</td>
+		            <td colspan="3">观察CPU和内存使用情况。</td>
+		            <td colspan="2"></td>
+		            <td colspan="3"></td>
+		        </tr>
+		        <tr class="ta_tr1">
+		            <td colspan="2">网络通信</td>
+		            <td colspan="3">ping网关或其他机器，观察是否有丢包现象。</td>
+		            <td colspan="2"></td>
+		            <td colspan="3"></td>
+		        </tr>
+		        <tr class="ta_tr1">
+		            <td colspan="2">磁盘使用</td>
+		            <td colspan="3">检查磁盘可用空间情况。</td>
+		            <td colspan="2"></td>
+		            <td colspan="3"></td>
+		        </tr>
+		        <tr class="ta_tr1">
+		            <td colspan="2">日志检查</td>
+		            <td colspan="3">检查系统日志、系统启动错误日志、系统安全日志。</td>
+		            <td colspan="2"></td>
+		            <td colspan="3"></td>
+		        </tr>
+		        <tr class="ta_tr1">
+		            <td colspan="2">账户和密码</td>
+		            <td colspan="3">使用账户和密码登录，检查是否能够正常登录到系统。</td>
+		            <td colspan="2"></td>
+		            <td colspan="3"></td>
+		        </tr>
+	    	</table>
+	    	
+	    	<div>
+	    		<p class="font_b2 left">巡检人:<span></span></p>
+	    		<p class="font_b2 right">巡检日期:<span></span></p>
+	    	</div>
+		</div>
+		<!--end-->
+	</body>
+</html>

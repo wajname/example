@@ -98,6 +98,66 @@
 				x // "Hello"
 				y // "World"
 			}
+			
+			
+			/*
+			 * 解构赋值的用途
+			 */
+			{
+				/*
+				 * 交换变量的值
+				 */
+				let x = 1;
+				let y = 2;
+				
+				[x, y] = [y, x];
+				
+				/*
+				 * 从函数中返回多个值
+				 */
+				
+				// 返回一个数组
+				function example() {
+				  return [1, 2, 3];
+				}
+				let [a, b, c] = example();
+				
+				// 返回一个对象
+				
+				function example() {
+				  return {
+				    foo: 1,
+				    bar: 2
+				  };
+				}
+				let { foo, bar } = example();
+				
+				/*
+				 * 函数参数定义
+				 */
+				
+				// 参数是一组有次序的值
+				function f([x, y, z]) { ... }
+				f([1, 2, 3]);
+				
+				// 参数是一组无次序的值
+				function f({x, y, z}) { ... }
+				f({z: 3, y: 2, x: 1});
+				
+				/*
+				 * 提取JSON数据
+				 */
+				let jsonData = {
+				  id: 42,
+				  status: "OK",
+				  data: [867, 5309]
+				};
+				
+				let { id, status, data: number } = jsonData;
+				
+				console.log(id, status, number);
+				// 42, "OK", [867, 5309]
+			}
 		</script>
 	</body>
 </html>
