@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue</title>
+		<script type="text/javascript" src="vue.min.js" ></script>
+	</head>
+	<body>
+		<div id="vue_det">
+		    <h5>site : {{site}}</h5>
+		    <h5>url : {{url}}</h5>
+		    <h5>{{details()}}</h5>
+		</div>
+		<script type="text/javascript">
+			var data = { site: "百度一下", url: "www.baidu.com", alexa: 10000}
+			var vm = new Vue({
+			    el: '#vue_det',
+			    data: data,
+			    methods: {
+		            details: function() {
+		                return  this.site + " - 学的不仅是技术，更是梦想！";
+		            }
+		        }
+			})
+			 
+			document.write(vm.$data === data) // true
+			document.write("<br>") // true
+			document.write(vm.$el === document.getElementById('vue_det')) // true
+		</script>
+	</body>
+</html>
