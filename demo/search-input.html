@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+				font-size: 14px;
+				font-family: "microsoft yahei", 'Arial', 'Verdana', 'Helvetica', sans-serif;
+			}
+			
+			.bar {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				/* 决定了搜索框置顶 */
+				height: 40px;
+				padding: 0 10px;
+				background-color: #fff;
+				opacity: 0.8;
+				/* 搜索框半透明效果 */
+				z-index: 10;
+			}
+			
+			.search-row {
+				position: relative;
+				height: 30px;
+				padding: 5px 0;
+			}
+			
+			.search-row input[type=search] {
+				position: absolute;
+				top: 7px;
+				height: 30px;
+				line-height: 21px;
+				width: 100%;
+				padding: 10px 15px 10px 30px;
+				border: 0;
+				border-radius: 6px;
+				outline: 0;
+				background-color: rgba(0, 0, 0, 0.1);
+				font-size: 16px;
+				text-align: center;
+				z-index: 100;
+			}
+			
+			.search-row .placeholder {
+				position: absolute;
+				top: 2px;
+				left: 0;
+				right: 0;
+				display: inline-block;
+				height: 34px;
+				line-height: 34px;
+				border: 0;
+				border-radius: 6px;
+				font-size: 16px;
+				text-align: center;
+				color: #999;
+				z-index: 1;
+			}
+			
+			.search-row .placeholder .iconfont {
+				display: inline-block;
+				width: 19px;
+				line-height: 24px;
+				padding: 10px 0;
+				font-size: 21px;
+				color: #666;
+			}
+			
+			.search-row .placeholder .text {
+				line-height: 40px;
+				vertical-align: top;
+				margin-left: 5px;
+			}
+			
+			.active-icon {
+				position: absolute;
+				top: 14px;
+				left: 5px;
+				right: auto;
+				display: block;
+			}
+			
+			.active input[type=search] {
+				text-align: left
+			}
+			
+			.active .placeholder {
+				display: none
+			}
+			
+			@font-face {
+			  font-family: 'iconfont';  /* project id 721382 */
+			  src: url('//at.alicdn.com/t/font_721382_cnzo6in2dvs.eot');
+			  src: url('//at.alicdn.com/t/font_721382_cnzo6in2dvs.eot?#iefix') format('embedded-opentype'),
+			  url('//at.alicdn.com/t/font_721382_cnzo6in2dvs.woff') format('woff'),
+			  url('//at.alicdn.com/t/font_721382_cnzo6in2dvs.ttf') format('truetype'),
+			  url('//at.alicdn.com/t/font_721382_cnzo6in2dvs.svg#iconfont') format('svg');
+			}
+			.iconfont{
+			    font-family:"iconfont";
+			    font-size:16px;
+			    font-style:normal;
+			    -webkit-font-smoothing: antialiased;
+			        -webkit-text-stroke-width: 0.2px;
+			        -moz-osx-font-smoothing: grayscale;
+			}
+			.hide-icon{
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- 搜索框 -->
+		<header class="bar">
+			<div class="search-row">
+				<span class="active-icon hide-icon">&#xe627;</span>
+				<input type="search" name="word" id="word">
+				<span class="placeholder"><span class="iconfont">&#xe627;</span><span class="text">搜索</span></span>
+			</div>
+		</header>
+	</body>
+	<script type="text/javascript">
+		/* 输入框获取到焦点 表示用户正在输入 */
+		$("#word").focusin(function() {
+			$(".search-row").addClass("active");
+			$(".search-row .active-icon").addClass("iconfont");
+			$(".search-row .active-icon").removeClass("hide-icon");
+		});
+		/* 输入框失去焦点 表示用户输入完毕 */
+		$("#word").focusout(function() {
+			/* 判断用户是否有内容输入 */
+			if($(this).val() == "") {
+				/* 没有内容输入 改变样式 */
+				$(".search-row").removeClass("active");
+				$(".search-row .active-icon").removeClass("iconfont");
+				$(".search-row .active-icon").addClass("hide-icon");
+			} else {
+				/* 有内容输入 保持样式 并提交表单 */
+				alert("");
+			}
+		});
+	</script>
+
+</html>

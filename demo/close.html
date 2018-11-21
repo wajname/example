@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			function confirmClose() {
+				var _t = null;
+				var isShow = true;
+				var _text = "只在IE上会显示提示";
+				window.onbeforeunload = function(event) {
+//					_do(event);
+					return '您确定要离开haorooms博客吗？';
+				}
+
+				window.onunload = function(event) {
+					window.open("http://www.baidu.com")
+//					_do(event);
+				}
+
+//				window.onunloadcancel = function() {
+//					alert(1)
+//					clearTimeout(_t);
+//				}
+
+				function _do(event) {
+					event = event || window.event;
+					setTimeout(function() {
+						_t = setTimeout(onunloadcancel, 0)
+					}, 0);
+					var browser = navigator.appName;
+					if(event) {
+//					if(event && isShow) {
+//						isShow = false;
+						event.returnValue = _text;
+					}
+					if(browser == "Netscape") {
+						return _text;
+					} else {
+						window.event.returnValue = _text;
+					}
+//					if(isShow) {
+//						if(browser == "Netscape") {
+//							return _text;
+//						} else {
+//							window.event.returnValue = _text;
+//						}
+//					}
+				}
+			}
+
+			confirmClose() //放置需要引用的地方
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/jquery-1.7.2.min.js"></script>
+		<style>
+			.banner{
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				width: 200px;
+				height: 90px;
+				background: red;
+			}
+			.banner-box{
+				position: absolute;
+				right: 3px;
+				top: 0px;
+				width: 200px;
+				height: 300px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="banner-box" id="banner-box">
+			<div class="banner" id="banner" onclick="showAd();">
+				<span>飘窗</span>
+			</div>
+		</div>
+		
+		<script>
+			var intervalX = 1, intervalY = 1;
+            var posX = 0, posY = 0;
+            var interval = 5;
+            
+            var floatDivObj = $("#banner");
+            var windowObj = $("#banner-box");
+            
+            window.setInterval("float()", 300);
+            function float() {
+//              posX += (interval * intervalX);
+                posY += (interval * intervalY);
+                
+                //演示js和jquery下获取class对象的方式
+                $(".banner").css("top", posY);
+//              $(".banner").css("left", posX);
+//              if (posX < 1 || posX +  floatDivObj.offsetWidth > $(window).width()) {
+//                  intervalX = -intervalX;
+//              }
+                if (posY < windowObj.height()/interval) {
+                    intervalY++;
+                }else{
+                	intervalY--;
+                }
+            }
+		</script>
+	</body>
+</html>
