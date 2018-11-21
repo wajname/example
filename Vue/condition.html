@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>条件判断</title>
+		<script type="text/javascript" src="vue.min.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+			<!--if语句-->			
+			<template v-if="ok">
+				<p>百度一下</p>
+			</template>
+			<!--if else-->
+			<p v-if="Math.random() > 0.5">随机数大于0.5</p>
+			<p v-else>随机数小于0.5</p>
+			<!--else-if-->
+			<p v-if="type == 'A'">A</p>
+			<p v-else-if="type == 'B'">B</p>
+			<p v-else>C</p>
+			<!--v-show-->
+			<h4 v-show="show">Hello!</h4>
+		</div>
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					ok: true,
+					type: 'B',
+					show: true
+				}
+			})
+		</script>
+	</body>
+</html>
