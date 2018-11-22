@@ -6,7 +6,7 @@
 		<script type="text/javascript" src="vue.min.js" ></script>
 	</head>
 	<body>
-		<div id="app">
+		<div id="app1">
 			<ol>
 				<li v-for="site in sites">
 					{{site.name}}
@@ -15,13 +15,47 @@
 		</div>
 		<script>
 			new Vue({
-				el: '#app',
+				el: '#app1',
 				data: {
 					sites: [
 						{name: 'Runoob'},
 						{name: 'Google'},
 						{name: 'Baidu'}
 					]
+				}
+			})
+		</script>
+		<div id="app2">
+			<ul>
+				<li v-for="value in object">
+					{{value}}
+				</li>
+			</ul>
+			<ul>
+			    <li v-for="(value, key) in object">
+			    	{{ key }} : {{ value }}
+			    </li>
+		  	</ul>
+		  	<ul>
+			    <li v-for="(value, key, index) in object">
+		     		{{ index }}. {{ key }} : {{ value }}
+			    </li>
+		  	</ul>
+		  	<ul>
+			    <li v-for="n in 10">
+	     			{{ n }}
+			    </li>
+		  	</ul>
+		</div>
+		<script>
+			new Vue({
+				el: '#app2',
+				data: {
+					object: {
+						name: '百度一下',
+						url: 'www.baidu.com',
+						slogan: '哈哈哈哈哈哈哈哈！'
+					}
 				}
 			})
 		</script>
